@@ -26,6 +26,10 @@ export default function Home() {
     fetchPizzas();
   }, []);
 
+  useEffect(() => {
+    document.title = "Home";
+  }, []);
+
   // Pizzas populares (primeiras 3 do banco ou pizzas padrão se não houver dados)
   const pizzasPopulares = pizzas.slice(0, 3);
 

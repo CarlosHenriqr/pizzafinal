@@ -40,6 +40,10 @@ function PainelAdmin() {
       });
   }, []);
 
+  useEffect(() => {
+    document.title = "Admin";
+  }, []);
+
   const handleDelete = async (tipo, id) => {
     const urls = {
       cliente: `http://localhost:8080/clientes/${id}`,

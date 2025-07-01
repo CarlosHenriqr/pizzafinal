@@ -22,6 +22,10 @@ function HistoricoPedidos({ clienteId }) {
     }
   }, [clienteId]);
 
+  useEffect(() => {
+    document.title = "Meus Pedidos";
+  }, []);
+
   if (loading) {
     return (
       <div className="pizzeria-card" style={{ marginTop: "30px" }}>

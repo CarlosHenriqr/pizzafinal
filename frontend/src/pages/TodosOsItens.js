@@ -28,6 +28,10 @@ function TodosOsItens() {
     fetchPizzas();
   }, []);
 
+  useEffect(() => {
+    document.title = "Cardápio";
+  }, []);
+
   // Função para adicionar pizza ao carrinho
   const handleAdicionarCarrinho = async (pizza) => {
     setMensagem("");

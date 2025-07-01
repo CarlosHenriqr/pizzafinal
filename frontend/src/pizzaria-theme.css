@@ -19,7 +19,7 @@ body,
 html {
   background: var(--cor-fundo);
   color: var(--cor-texto);
-  font-family: var(--fonte-texto);
+  font-family: Arial, sans-serif;
   min-height: 100vh;
 }
 

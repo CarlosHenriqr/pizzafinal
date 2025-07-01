@@ -148,6 +148,10 @@ function Carrinho() {
     0
   );
 
+  useEffect(() => {
+    document.title = "Carrinho";
+  }, []);
+
   if (loading && itens.length === 0) {
     return (
       <div className="page-container">

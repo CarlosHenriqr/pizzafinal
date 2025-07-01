@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/pizzeria-theme.css";
 
@@ -10,6 +10,10 @@ function FinalizarPedido({ clienteId, carrinhoId, onPedidoFinalizado }) {
   const [pedido, setPedido] = useState(null);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    document.title = "Finalizar Pedido";
+  }, []);
 
   const finalizar = async () => {
     setMensagem("");
@@ -40,9 +44,6 @@ function FinalizarPedido({ clienteId, carrinhoId, onPedidoFinalizado }) {
       setTipoMensagem("success");
 
       if (onPedidoFinalizado) onPedidoFinalizado(data);
-
-      
-      setTimeout(() => navigate("/"), 3000);
     } catch (err) {
       setMensagem("❌ Erro: " + err.message);
       setTipoMensagem("error");

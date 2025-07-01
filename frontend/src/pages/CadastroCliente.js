@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { clienteAPI, carrinhoAPI } from "../services/api";
 import { useNavigate } from "react-router-dom";
 
@@ -37,6 +37,10 @@ export default function CadastroCliente() {
       setLoading(false);
     }
   };
+
+  useEffect(() => {
+    document.title = "Cadastro de Cliente";
+  }, []);
 
   return (
     <div className="page-container">

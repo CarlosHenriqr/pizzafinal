@@ -31,6 +31,7 @@ function CrudPizzas({ modoCriacao }) {
     if (!modoCriacao) {
       fetchPizzas();
     }
+    document.title = modoCriacao ? "Cadastrar Pizza" : "Gerenciar Pizzas";
   }, [modoCriacao]);
 
   const handleChange = (e) => {
