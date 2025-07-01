@@ -42,7 +42,7 @@ export default function CadastroCliente() {
     <div className="page-container">
       <div className="container">
         <div className="form-container">
-          <h2>Cadastro de Cliente</h2>
+          <h2>Cadastro</h2>
           <form onSubmit={handleSubmit}>
             <div className="form-group">
               <label htmlFor="nome">Nome</label>

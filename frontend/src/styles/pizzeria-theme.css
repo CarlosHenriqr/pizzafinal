@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap");
 
 :root {
-  --pizzeria-red: #d32f2f;
+  --pizzeria-red:  #ff6b35;
   --pizzeria-yellow: #ffc107;
   --pizzeria-brown: #8d6e63;
   --pizzeria-cream: #fff8e1;
@@ -18,11 +18,9 @@
 
 body {
   font-family: "Inter", sans-serif;
-  background: linear-gradient(
-    135deg,
-    var(--pizzeria-cream) 0%,
-    var(--pizzeria-light-brown) 100%
-  );
+  background: linear-gradient(135deg,
+      var(--pizzeria-cream) 0%,
+      var(--pizzeria-light-brown) 100%);
   color: var(--pizzeria-dark);
   line-height: 1.6;
   margin: 0;
@@ -56,18 +54,10 @@ body {
   left: 0;
   right: 0;
   height: 4px;
-  background: linear-gradient(
-    90deg,
-    var(--pizzeria-red),
-    var(--pizzeria-yellow)
-  );
+  background: var(--pizzeria-red);
 }
 
-.pizzeria-card:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-warm);
-  border-color: var(--pizzeria-red);
-}
+
 
 .pizzeria-title {
   font-family: "Playfair Display", serif;
@@ -137,12 +127,10 @@ body {
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.2),
-    transparent
-  );
+  background: linear-gradient(90deg,
+      transparent,
+      rgba(255, 255, 255, 0.2),
+      transparent);
   transition: left 0.5s;
 }
 
@@ -151,7 +139,7 @@ body {
 }
 
 .pizzeria-btn-primary {
-  background: linear-gradient(135deg, var(--pizzeria-red), #b71c1c);
+  background: #ff6b35;
   color: var(--pizzeria-white);
   box-shadow: var(--shadow-soft);
 }
@@ -172,12 +160,12 @@ body {
 }
 
 .pizzeria-btn-danger {
-  background: #f44336;
+  background: var(--pizzeria-red);
   color: var(--pizzeria-white);
 }
 
 .pizzeria-btn-danger:hover {
-  background: #d32f2f;
+  background: var(--pizzeria-red);
   transform: translateY(-2px);
 }
 
@@ -297,6 +285,7 @@ body {
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -308,6 +297,7 @@ body {
     opacity: 0;
     transform: translateY(-20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -315,10 +305,12 @@ body {
 }
 
 @keyframes pulse {
+
   0%,
   100% {
     transform: scale(1);
   }
+
   50% {
     transform: scale(1.05);
   }

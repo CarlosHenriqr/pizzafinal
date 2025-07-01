@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { pizzaAPI, carrinhoAPI } from "../services/api";
+import pizzaIlustrativa from '../imgs/pizza-ilustrativa.jpg';
 
 function TodosOsItens() {
   const [pizzas, setPizzas] = useState([]);
@@ -73,13 +74,7 @@ function TodosOsItens() {
           <div className="pizzas-grid">
             {pizzas.map((pizza) => (
               <div key={pizza.id} className="pizza-card">
-                <div className={`pizza-image ${pizza.nome?.toLowerCase().includes('margherita') ? 'margherita' : 
-                  pizza.nome?.toLowerCase().includes('pepperoni') ? 'pepperoni' : 
-                  pizza.nome?.toLowerCase().includes('calabresa') ? 'calabresa' :
-                  pizza.nome?.toLowerCase().includes('quatro') ? 'quatro-queijos' :
-                  pizza.nome?.toLowerCase().includes('portuguesa') ? 'portuguesa' :
-                  pizza.nome?.toLowerCase().includes('frango') ? 'frango-catupiry' : 'margherita'}`}>
-                </div>
+                <img src={pizzaIlustrativa} alt="Pizza" className="pizza-image" style={{width: '100%', height: '180px', objectFit: 'cover', borderRadius: '8px', marginBottom: '10px'}} />
                 <div className="pizza-info">
                   <h3>{pizza.nome}</h3>
                   <p>{pizza.descricao}</p>

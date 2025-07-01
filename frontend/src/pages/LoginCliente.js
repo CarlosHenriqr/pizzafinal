@@ -1,41 +1,43 @@
-import React, { useState } from "react";
-import { clienteAPI, carrinhoAPI } from "../services/api";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from 'react';
+import { clienteAPI, carrinhoAPI } from '../services/api';
+import { useNavigate } from 'react-router-dom';
 
 export default function LoginCliente() {
-  const [email, setEmail] = useState("");
-  const [senha, setSenha] = useState("");
-  const [mensagem, setMensagem] = useState("");
+  const [email, setEmail] = useState('');
+  const [senha, setSenha] = useState('');
+  const [mensagem, setMensagem] = useState('');
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setMensagem("");
+    setMensagem('');
     setLoading(true);
     try {
       // Login com senha
       const resp = await clienteAPI.login({ email, senha });
       const cliente = resp;
       if (cliente) {
-        localStorage.setItem("clienteId", cliente.id);
-        localStorage.setItem("clienteNome", cliente.nome);
-        localStorage.setItem("clienteEmail", cliente.email);
+        localStorage.setItem('clienteId', cliente.id);
+        localStorage.setItem('clienteNome', cliente.nome);
+        localStorage.setItem('clienteEmail', cliente.email);
         // Buscar carrinho do cliente
         const carrinhos = await carrinhoAPI.getAll();
-        const carrinho = carrinhos.find((c) => c.cliente && c.cliente.id === cliente.id);
+        const carrinho = carrinhos.find(
+          (c) => c.cliente && c.cliente.id === cliente.id
+        );
         if (carrinho) {
-          localStorage.setItem("carrinhoId", carrinho.id);
+          localStorage.setItem('carrinhoId', carrinho.id);
         } else {
-          localStorage.removeItem("carrinhoId");
+          localStorage.removeItem('carrinhoId');
         }
-        setMensagem("Login realizado! Redirecionando...");
-        setTimeout(() => navigate("/"), 1200);
+        setMensagem('Login realizado! Redirecionando...');
+        setTimeout(() => navigate('/'), 1200);
       } else {
-        setMensagem("E-mail ou senha incorretos. Tente novamente!");
+        setMensagem('E-mail ou senha incorretos. Tente novamente!');
       }
     } catch (err) {
-      setMensagem("E-mail ou senha incorretos. Tente novamente!");
+      setMensagem('E-mail ou senha incorretos. Tente novamente!');
     } finally {
       setLoading(false);
     }
@@ -45,7 +47,7 @@ export default function LoginCliente() {
     <div className="page-container">
       <div className="container">
         <div className="form-container">
-          <h2>Login de Cliente</h2>
+          <h2>Login</h2>
           <form onSubmit={handleSubmit}>
             <div className="form-group">
               <label htmlFor="email">E-mail</label>
@@ -64,13 +66,17 @@ export default function LoginCliente() {
               <input
                 type="password"
                 value={senha}
-                onChange={e => setSenha(e.target.value)}
+                onChange={(e) => setSenha(e.target.value)}
                 required
                 disabled={loading}
               />
             </div>
-            <button type="submit" className="btn btn-primary" disabled={loading}>
-              {loading ? "Entrando..." : "Entrar"}
+            <button
+              type="submit"
+              className="btn btn-primary"
+              disabled={loading}
+            >
+              {loading ? 'Entrando...' : 'Entrar'}
             </button>
           </form>
           {mensagem && <div className="alert alert-info mt-3">{mensagem}</div>}

@@ -15,9 +15,8 @@ function FinalizarPedido({ clienteId, carrinhoId, onPedidoFinalizado }) {
     setMensagem("");
     setLoading(true);
 
-    // Corrige: impede requisição se clienteId ou carrinhoId estiverem ausentes
     if (!clienteId || !carrinhoId) {
-      setMensagem("❌ Erro: Cliente ou carrinho não informado. Faça login e tente novamente.");
+      setMensagem("❌ Erro: Faça login e tente novamente.");
       setTipoMensagem("error");
       setLoading(false);
       return;
@@ -42,7 +41,7 @@ function FinalizarPedido({ clienteId, carrinhoId, onPedidoFinalizado }) {
 
       if (onPedidoFinalizado) onPedidoFinalizado(data);
 
-      // Redirect to home page after successful order
+      
       setTimeout(() => navigate("/"), 3000);
     } catch (err) {
       setMensagem("❌ Erro: " + err.message);

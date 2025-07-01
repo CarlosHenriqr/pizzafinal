@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { pizzaAPI } from "../services/api";
+import pizzaIlustrativa from '../imgs/pizza-ilustrativa.jpg';
 
 export default function Home() {
   const [pizzas, setPizzas] = useState([]);
@@ -61,9 +62,7 @@ export default function Home() {
             <div className="pizza-grid">
               {pizzasPopulares.map((pizza) => (
                 <div key={pizza.id} className="pizza-card">
-                  <div className={`pizza-image ${pizza.nome?.toLowerCase().includes('margherita') ? 'margherita' : 
-                    pizza.nome?.toLowerCase().includes('pepperoni') ? 'pepperoni' : 'calabresa'}`}>
-                  </div>
+                  <img src={pizzaIlustrativa} alt="Pizza" className="pizza-image" style={{width: '100%', height: '180px', objectFit: 'cover', borderRadius: '8px', marginBottom: '10px'}} />
                   <h3>{pizza.nome}</h3>
                   <p>{pizza.descricao}</p>
                   <span className="price">R$ {Number(pizza.preco).toFixed(2)}</span>
@@ -73,21 +72,19 @@ export default function Home() {
           ) : (
             <div className="pizza-grid">
               <div className="pizza-card">
-                <div className="pizza-image margherita"></div>
+                <img src={pizzaIlustrativa} alt="Pizza" className="pizza-image" style={{width: '100%', height: '180px', objectFit: 'cover', borderRadius: '8px', marginBottom: '10px'}} />
                 <h3>Margherita</h3>
                 <p>Molho de tomate, mussarela fresca, manjericão e azeite</p>
                 <span className="price">R$ 25,90</span>
               </div>
-              
               <div className="pizza-card">
-                <div className="pizza-image pepperoni"></div>
+                <img src={pizzaIlustrativa} alt="Pizza" className="pizza-image" style={{width: '100%', height: '180px', objectFit: 'cover', borderRadius: '8px', marginBottom: '10px'}} />
                 <h3>Pepperoni</h3>
                 <p>Molho de tomate, mussarela e pepperoni picante</p>
                 <span className="price">R$ 32,90</span>
               </div>
-              
               <div className="pizza-card">
-                <div className="pizza-image calabresa"></div>
+                <img src={pizzaIlustrativa} alt="Pizza" className="pizza-image" style={{width: '100%', height: '180px', objectFit: 'cover', borderRadius: '8px', marginBottom: '10px'}} />
                 <h3>Calabresa</h3>
                 <p>Molho de tomate, mussarela, calabresa e cebola</p>
                 <span className="price">R$ 28,90</span>
