@@ -2,6 +2,11 @@
 
 Projeto completo de uma aplicação de pizzaria, com backend em Spring Boot e frontend em React. O sistema permite cadastro de clientes, gerenciamento de pizzas, pedidos, histórico, painel administrativo e muito mais.
 
+## Alunos
+Carlos Henrique Ramos
+Kaua Becker
+Julia Rodrigues
+
 ## Sumário
 
 - [Visão Geral](#visão-geral)
