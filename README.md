@@ -7,6 +7,7 @@ Projeto completo de uma aplicação de pizzaria, com backend em Spring Boot e fr
 - Kaua Becker
 - Julia Rodrigues
 
+-ca.pem deve ser colocacado na pasta /resources
 ## Sumário
 
 - [Visão Geral](#visão-geral)
